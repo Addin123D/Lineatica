@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+$1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projek IOT - Lineatica</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom, #381257,#6c3e92);
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+    header {
+      font-family: 'Outfit', sans-serif;
+      background: transparent;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .logos img {
+      height: 80px;
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.8);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .info, .status div {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.25);
+      color: white;
+      font-size: 20px;
+    }
+    .status {
+      margin-top: 40px;
+    }
+    .status div {
+      border: 1px solid #ccc;
+      margin-bottom: 12px;
+    }
+    .on {
+      background-color: rgba(129, 199, 132, 0.85);
+    }
+    .off {
+      background-color: rgba(239, 154, 154, 0.85);
+    }
+    canvas {
+      width: 100% !important;
+      max-width: 960px;
+      margin: 70px auto;
+      display: block;
+      background-color: white;
+      border-radius: 16px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1 style="font-size: 75px; margin-bottom: 10px;">Informasi Projek IoT - Lineatica</h1>
+    <h3 style="font-size: 36px;">Level 7 - TechnoNatura</h3>
+  </header>
+
+  
+
+  <main>
+    <div class="info-grid">
+      <div class="info">💡 <strong>Cahaya:</strong> 730 lux</div>
+      <div class="info">🌿 <strong>Nitrogen:</strong> 45 ppm</div>
+      <div class="info">🌾 <strong>Phosporus:</strong> 30 ppm</div>
+      <div class="info">🌻 <strong>Potassium:</strong> 60 ppm</div>
+      <div class="info">💨 <strong>Suhu Angin:</strong> 28°C</div>
+      <div class="info">🌬️ <strong>Kelembaban Angin:</strong> 55%</div>
+      <div class="info">🌱 <strong>Kelembaban Tanah:</strong> 40%</div>
+      <div class="info">🛠️ <strong>Status:</strong> Berhasil</div>
+    </div>
+
+    <canvas id="chart"></canvas>
+
+    <div class="status">
+      <h3>Status Perangkat:</h3>
+      <div class="on">🔄 Kipas: Nyala</div>
+      <div class="off">🚿 Sprinkler: Mati</div>
+      <div class="on">🌾 Pupuk: Nyala</div>
+      <div class="on">💡 Lampu: Nyala</div>
+    </div>
+  </main>
+
+  <script>
+    const ctx = document.getElementById('chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Cahaya', 'Nitrogen', 'Phosporus', 'Potassium', 'Suhu Angin', 'Kelembaban Angin', 'Kelembaban Tanah'],
+        datasets: [{
+          label: 'Data Sensor',
+          data: [730, 45, 30, 60, 28, 55, 40],
+          backgroundColor: 'rgba(103, 58, 183, 0.6)',
+          borderColor: 'rgba(103, 58, 183, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        font: {
+          size: 12
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            font: {
+              size: 14,
+              weight: 'bold'
+            },
+            text: 'Grafik Sensor Lineatica'
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              font: {
+              size: 14,
+              weight: 'bold'
+            }
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
