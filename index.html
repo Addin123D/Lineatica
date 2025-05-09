@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
-$1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-<meta charset="UTF-8">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projek IOT - Lineatica</title>
   <style>
@@ -19,16 +20,6 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
       padding: 20px;
       text-align: center;
     }
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      margin: 20px 0;
-    }
-    .logos img {
-      height: 80px;
-    }
     main {
       max-width: 1080px;
       margin: 0 auto;
@@ -42,7 +33,7 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
-    .info, .status div {
+    .info {
       padding: 20px;
       border-radius: 10px;
       background-color: rgba(255, 255, 255, 0.25);
@@ -52,15 +43,25 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
     .status {
       margin-top: 40px;
     }
-    .status div {
-      border: 1px solid #ccc;
+    .status a {
+      display: block;
+      padding: 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 20px;
       margin-bottom: 12px;
+      color: white;
+      border: 1px solid #ccc;
+      transition: background-color 0.3s ease;
     }
-    .on {
+    .status a.on {
       background-color: rgba(129, 199, 132, 0.85);
     }
-    .off {
+    .status a.off {
       background-color: rgba(239, 154, 154, 0.85);
+    }
+    .status a:hover {
+      filter: brightness(1.1);
     }
     canvas {
       width: 100% !important;
@@ -79,8 +80,6 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
     <h3 style="font-size: 36px;">Level 7 - TechnoNatura</h3>
   </header>
 
-  
-
   <main>
     <div class="info-grid">
       <div class="info">💡 <strong>Cahaya:</strong> 730 lux</div>
@@ -97,10 +96,10 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
 
     <div class="status">
       <h3>Status Perangkat:</h3>
-      <div class="on">🔄 Kipas: Nyala</div>
-      <div class="off">🚿 Sprinkler: Mati</div>
-      <div class="on">🌾 Pupuk: Nyala</div>
-      <div class="on">💡 Lampu: Nyala</div>
+      <a href="kipas_mati.html" class="on">🔄 Kipas: Nyala</a>
+      <a href="sprinkler_nyala.html" class="off">🚿 Sprinkler: Mati</a>
+      <a href="pupuk_mati.html" class="on">🌾 Pupuk: Nyala</a>
+      <a href="lampu_mati.html" class="on">💡 Lampu: Nyala</a>
     </div>
   </main>
 
@@ -120,29 +119,16 @@ $1<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&d
       },
       options: {
         responsive: true,
-        font: {
-          size: 12
-        },
         plugins: {
-          legend: {
-            display: false
-          },
+          legend: { display: false },
           title: {
-            font: {
-              size: 14,
-              weight: 'bold'
-            },
+            font: { size: 14, weight: 'bold' },
             text: 'Grafik Sensor Lineatica'
           }
         },
         scales: {
           x: {
-            ticks: {
-              font: {
-              size: 14,
-              weight: 'bold'
-            }
-            }
+            ticks: { font: { size: 14, weight: 'bold' } }
           },
           y: {
             beginAtZero: true
